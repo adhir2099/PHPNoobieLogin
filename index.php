@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Noobie login</title>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="author" content="AdhirSaurio" />
-    <meta name="description" content="Easy peasy login for php beginners with PHP7, PDO, ajax and SPA" />
-
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <link href="assets/css/styles.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-</head>
-
 <?php
     session_start();
-    // You can use require_once() if you want instead of a direct connection
-    // require_once("dbcon.php");
-    // even include("dbcon.php"); can be used
-
-    $connect = new PDO("mysql:host=host;dbname=databaseName;charset=utf8", "User", "Password");
+    require_once("dbcon.php");
 
     try {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
@@ -49,6 +27,29 @@
     }
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Noobie login</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="author" content="AdhirSaurio" />
+    <meta name="description" content="Easy peasy login for php beginners with PHP7, PDO, ajax and SPA" />
+
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <link href="assets/css/styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <script src="assets/js/jquery4.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v7.1.0/js/all.js" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+
 
 <body id="page-top" class="d-flex flex-column min-vh-100">
 
@@ -88,9 +89,9 @@
                         </div>
                         <br />
                         <?php
-                        if (isset($message)) {
-                            echo '<label class="text-danger">' . $message . '</label>';
-                        }
+                            if (isset($message)) {
+                                echo '<label class="text-danger">' . $message . '</label>';
+                            }
                         ?>
                         <div class="form-group text-center">
                             <button class="btn btn-primary btn-xl" type="submit" name="login">LOGIN</button>
@@ -102,32 +103,8 @@
         </div>
     </section>
 
-    <!--Footer-->
-    <footer class="footer text-center mt-auto">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-12">
-                    <h4 class="text-uppercase mb-4">About</h4>
-                    <p class="lead mb-0">Easy-peasy login for php beginners <a href="http://localhost/gitRepos/php-noobie-login/success.php"><i class="fab fa-github-alt"></i></a></p>
-                </div>
-
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
-    <div class="scroll-to-top d-lg-none position-fixed">
-        <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
-    </div>
-
-    <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Theme JS-->
-    <script src="assets/js/scripts.js"></script>
 </body>
 
 </html>
